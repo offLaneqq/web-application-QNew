@@ -24,8 +24,8 @@ db = SQL("sqlite:///news.db")
 
 #from config import API_KEY
 #os.environ["API_KEY"]=API_KEY
-#if not os.environ.get("API_KEY"):
-#    raise RuntimeError("API_KEY not set")
+if not os.environ.get("API_KEY"):
+    raise RuntimeError("API_KEY not set")
 
 def login_required(f):
     @wraps(f)
