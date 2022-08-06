@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Спорт
+{% endblock %}
+
+{% block main %}
+
+<table class="center">
+
+    {% for s in sport %}
+    {% if s.typeN == 2 %}
+    <tr>
+        <td><h6>{{ s.date }}</h6></td>
+        <td><h5>
+            {% if s.img %}<img src="{{ s.img }}" class="img_list">{% endif %}
+            <p><a href="sport/{{ s.id }}">{{ s.title }}</p></a></h5><p>{{ s.material | truncate(200) | safe }}</p></td>
+    </tr>
+    {% endif %}
+    {% endfor%}
+    </table>
+
+
+{% endblock %}

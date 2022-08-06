@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {% for n in new %}
+    {{ n.title }}
+    {% endfor %}
+{% endblock %}
+
+{% block main %}
+
+    {%for n in new %}
+
+        <h3 style="text-align: center">{{ n.title }}</h3>
+        <img src="{{ n.img }}" class="img_detail">
+        <p> {{ n.material | safe }}</p>
+
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Технології
+{% endblock %}
+
+{% block main %}
+
+<table class="center">
+
+    {% for p in tech %}
+    {% if p.typeN == 3 %}
+    <tr>
+        <td><h6>{{ p.date }}</h6></td>
+        <td><h5>
+            {% if p.img %}<img src="{{ p.img }}" class="img_list">{% endif %}
+            <a href="technology/{{ p.id }}"><p>{{ p.title }}</p></a></h5><p>{{ p.material | truncate(200) | safe }}</p></td>
+    </tr>
+    {% endif %}
+    {% endfor%}
+    </table>
+
+{% endblock %}

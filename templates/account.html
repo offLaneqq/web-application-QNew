@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Акаунт
+{% endblock %}
+
+{% block main %}
+    {% if err %}
+    <div class="alert alert-success" role="alert">
+        Вітаю! {{ err }}
+    </div>
+    {% endif %}
+        <div id="login-form">
+            <h1>Налаштування акаунту</h1>
+            <fieldset>
+                <form action="/updateAccSettings" method="POST">
+                <img class="avatar" src="{{ res[0]['img'] }}">
+                <!--<label for="telNo">Phone number: </label>
+                <input id="telNo" name="telNo" type="tel" list="defaultTels">
+
+                <datalist id="defaultTels">
+                <option value="111-1111-1111">
+                <option value="122-2222-2222">
+                <option value="333-3333-3333">
+                <option value="344-4444-4444">
+                </datalist>-->
+
+                <h5 class="account">Нікнейм: </h5>
+                <input name="username" type="text" value="{{ res[0]['username'] }}" class="subm">
+
+                <h5 class="account">Мобільний номер: </h5>
+                <input name="phone" type="tel" class="subm" placeholder="Введіть номер телефону" value="{% if res[0]['phone'] %} {{res[0]['phone']}} {% endif %}">
+
+
+                <h5 class="account">Поштова скринька: </h5>
+                <input type="email" name="email" placeholder="Введіть поштовий адрес" value="{% if res[0]['email'] %} {{ res[0]['email'] }} {% endif %}">
+
+                <h5 class="account">Біографія: </h5>
+                <textarea name="textarea" class="txt-area" placeholder="Введіть біографію">{% if res[0]['biography'] %} {{res[0]['biography']}} {% endif %}</textarea>
+                <input type="submit" value="Зберегти">
+                </form>
+            </fieldset>
+        </div>
+
+{% endblock%}

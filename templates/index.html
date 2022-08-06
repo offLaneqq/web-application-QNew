@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Головна
+{% endblock %}
+
+{% block main %}
+    <table class="center">
+    {% if err %}
+    <div class="alert alert-success" role="alert">
+        Вітаю! {{ err }}
+    </div>
+    {% endif %}
+
+    {% for new in news %}
+
+    <tr>
+        <td><h6>{{ new.date }}</h6></td>
+        <td><h4>
+            {% if new.img %}<img src="{{ new.img }}" class="img_list">{% endif %}
+            <p><a href="/news/{{ new.id }}">{{ new.title }}</a></p></h4><p>{{ new.material | truncate(200) | safe }}</p></td>
+
+    </tr>
+    {% endfor%}
+    </table>
+
+{% endblock %}

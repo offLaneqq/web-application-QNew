@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Реєстрація
+{% endblock %}
+
+{% block main %}
+<div class="column is-4 is-offset-4">
+    <div class="box">
+        {% if err == "Введені паролі не збігаються" %}
+        <div class="alert alert-danger" role="alert">
+            {{ err }}
+        </div>
+        {% endif %}
+        <div id="login-form">
+            <h1>Реєстрація</h1>
+            <fieldset>
+                <form action="/register" method="post">
+                    <input type="text" class="email" name="username" placeholder="Нікнейм">
+                    <input type="password" name="password" placeholder="Пароль">
+                    <input type="password" name="confirmation" placeholder="Повторіть пароль">
+                    <input type="submit" value="Зареєструватись">
+                </form>
+            </fieldset>
+        </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Вхід
+{% endblock %}
+
+{% block main %}
+<div class="column is-4 is-offset-4">
+    <div class="box">
+    {% if err == "Некоректно введений пароль або логін" %}
+        <div class="alert alert-danger" role="alert">
+            {{ err }}
+        </div>
+    {% elif err == "Заповніть поля логіну та паролю" %}
+        <div class="alert alert-danger" role="alert">
+            {{ err }}
+        </div>
+    {% endif %}
+        <div id="login-form">
+            <h1>Вхід</h1>
+            <fieldset>
+                <form action="/login" method="post">
+                    <input type="text" class="email" name="username" placeholder="Нікнейм">
+                    <input type="password" name="password" placeholder="Пароль">
+                    <input type="submit" value="Увійти">
+                </form>
+            </fieldset>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Війна
+{% endblock %}
+
+{% block main %}
+
+<table class="center">
+
+    {% for p in war %}
+    {% if p.typeN == 4 %}
+    <tr>
+        <td><h6>{{ p.date }}</h6></td>
+        <td><h5>
+            {% if p.img %}<img src="{{ p.img }}" class="img_list">{% endif %}
+            <p><a href="war/{{ p.id }}">{{ p.title }}</p></a></h5><p>{{ p.material | truncate(200) | safe }}</p></td>
+    </tr>
+    {% endif %}
+    {% endfor%}
+    </table>
+
+{% endblock %}
