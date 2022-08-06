@@ -1,0 +1,4 @@
+Flask
+Flask-Session
+requests
+gunicorn==20.0.4
